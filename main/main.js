@@ -39,7 +39,3 @@ const vue = new Vue(
     }
 
 );
-
-
-
-const 
