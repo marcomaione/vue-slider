@@ -1,9 +1,9 @@
 // avvio Vue
 
-const vue = new Vue(
+const root = new Vue(
 
     {
-        el: '#app',
+        el:'#app',
         data:{
             items:[
                 {
@@ -35,6 +35,20 @@ const vue = new Vue(
 
             active:0
 
+        },
+        methods: {
+            previous () {
+                this.active--;
+                if(this.active < 0) {
+                    this.active = this.items.length -1;
+                }
+            },
+            next () {
+                this.active++;
+                if(this.active == this.items.length) {
+                    this.active = 0;
+                }
+            }
         }
     }
 
