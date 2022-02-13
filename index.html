@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <div class="container" id="app">
+   <div class="container" id="app"
+    @mouseleave="autoplay"
+    @mouseover="stopPlay">
+    
         <div class="items">
             <div class="item active">
                 <img :src="items[activeS].photo">
