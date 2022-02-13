@@ -33,21 +33,25 @@ const root = new Vue(
                 }
             ],
 
-            active:0
+            activeS:0
 
         },
         methods: {
             previous () {
-                this.active--;
-                if(this.active < 0) {
-                    this.active = this.items.length -1;
+                this.activeS--;
+                if(this.activeS < 0) {
+                    this.activeS = this.items.length -1;
                 }
             },
             next () {
-                this.active++;
-                if(this.active == this.items.length) {
-                    this.active = 0;
+                this.activeS++;
+                if(this.activeS == this.items.length) {
+                    this.activeS = 0;
                 }
+            },
+            //bonus1 al click mi muovo all'interno del carosello mostrando le img cliccate 
+            gotoSlide(index) {
+                this.activeS = index;
             }
         }
     }
