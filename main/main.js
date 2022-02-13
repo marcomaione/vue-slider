@@ -33,8 +33,12 @@ const root = new Vue(
                 }
             ],
 
-            activeS:0
+            activeS:0,
+            clock:null,
 
+        },
+        mounted: function() {
+            this.autoplay();
         },
         methods: {
             previous () {
@@ -52,6 +56,17 @@ const root = new Vue(
             //bonus1 al click mi muovo all'interno del carosello mostrando le img cliccate 
             gotoSlide(index) {
                 this.activeS = index;
+            },
+            //bonus2 le slide scorrono da sole ogni 3 sec
+            autoplay() {
+                this.clock = setInterval(() => {
+                    this.previous();
+                }, 3000);
+            },
+            //bonus3 blocco la riproduzione delle img ogni 3 sec al passaggio del mouse sopra la slide
+            stopPlay() {
+                clearInterval(this.clock);
+                this.clock = null;
             }
         }
     }
